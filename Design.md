@@ -33,17 +33,18 @@
 ```
 /miFilosofia
 ├── assets/                     // Archivos estáticos
-│   ├── css/                    // Todo el CSS vive aquí (D-01, D-02, D-04)
+│   ├── css/                    // Todo el CSS vive aquí
 │   │   ├── _variables.css        // (D-01: Colores, fuentes, espaciado como CSS Custom Properties)
 │   │   ├── _base.css             // (Estilos de Reset, Tipografía base, Body)
-│   │   ├── _layout.css           // (D-04: Media Queries, Grid, Flexbox)
+│   │   ├── _layout.css           // (Media Queries, Grid, Flexbox)
 │   │   └── style.css             // Archivo principal que importa todos los anteriores
 │   ├── js/                     // Archivos JavaScript
 │   │   └── main.js               // Lógica principal (navegación, interacciones)
 │   └── img/                    // Imágenes y logos (incluye favicons)
 ├── data/                       // Archivos de contenido (si los quieres externos al HTML)
-│   ├── ikigai.json             // Citas o datos de Ikigai
-│   └── nietzsche.txt           // Textos largos
+│   ├── ikigai.json             // Citas o datos de Ikigai (Ejemplo)
+│   └── nietzsche.txt           // Textos largos (Ejemplo)
+├── content/                    // Archivos del contenido de la pagina (pdfs, etc)
 ├── index.html                  // (Página de Inicio)
 ├── ikigai.html                 // Página dedicada a Ikigai
 ├── estoicismo.html             // Página dedicada al Estoicismo
@@ -65,20 +66,3 @@ Se utilizarán tres breakpoints clave para manejar la transición del diseño:
 | **Móvil (Base)** | 0px | Diseño por defecto (una columna, máxima legibilidad). |
 | **Tablet/Medio (MD)** | **768px** | Ajustes de padding, aumento de tamaño de fuentes, potencial barra lateral simple. |
 | **Escritorio/Grande (LG)** | **1200px** | Layout de contenido principal de dos o tres columnas (si es necesario) y ancho máximo de página. |
-
-**Ejemplo de implementación de Media Query (en CSS-in-JS):**
-
-```javascript
-// Consumo dentro de un styled component:
-const ContentContainer = styled.div`
-  padding: ${({ theme }) => theme.spacing.spaceSm}; // Base Móvil
-
-  @media (min-width: 768px) {
-    padding: ${({ theme }) => theme.spacing.spaceMd}; // Estilo para Tablet/Medio
-  }
-
-  @media (min-width: 1200px) {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-`;
