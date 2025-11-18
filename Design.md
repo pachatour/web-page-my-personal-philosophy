@@ -32,34 +32,22 @@
 
 ```
 /miFilosofia
-├── public/                 // Archivos estáticos (favicon, manifest, robots.txt)
-├── src/
-│   ├── assets/             // Recursos de la web (Imágenes, SVGs)
-│   ├── data/               // Contenido en JSON/Markdown (Citas, Conceptos Clave)
-│   ├── theme/              // **Configuración de la Identidad Visual (D-01)**
-│   │   ├── colors.js         // Definición de la paleta (D-01)
-│   │   ├── fonts.js          // Definición de tipografía (D-01)
-│   │   └── theme.js          // Objeto principal que agrupa `colors` y `fonts`
-│   ├── components/         // Componentes UI reutilizables
-│   │   ├── GlobalStyles/     // Estilos de Reset/Base y globales
-│   │   │   └── GlobalStyles.js
-│   │   ├── Layout/           // Estructura de la página (Header, Footer)
-│   │   │   ├── Header.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── Button/           // Componente básico y reutilizable
-│   │   │   └── Button.jsx
-│   │   └── Card/             // Componente para presentar ideas/citas
-│   │       └── Card.jsx
-│   ├── pages/              // Páginas principales (vistas)
-│   │   ├── Home.jsx          // Página de inicio
-│   │   ├── Ikigai.jsx        // Página dedicada a Ikigai
-│   │   ├── Estoicismo.jsx    // Página dedicada al Estoicismo
-│   │   └── Nietzsche.jsx     // Página dedicada a Nietzsche
-│   ├── App.jsx             // Componente raíz (manejo de rutas)
-│   └── index.js            // Punto de entrada del proyecto
-├── .gitignore
-├── package.json
-└── README.md
+├── assets/                     // Archivos estáticos
+│   ├── css/                    // Todo el CSS vive aquí (D-01, D-02, D-04)
+│   │   ├── _variables.css        // (D-01: Colores, fuentes, espaciado como CSS Custom Properties)
+│   │   ├── _base.css             // (Estilos de Reset, Tipografía base, Body)
+│   │   ├── _layout.css           // (D-04: Media Queries, Grid, Flexbox)
+│   │   └── style.css             // Archivo principal que importa todos los anteriores
+│   ├── js/                     // Archivos JavaScript
+│   │   └── main.js               // Lógica principal (navegación, interacciones)
+│   └── img/                    // Imágenes y logos (incluye favicons)
+├── data/                       // Archivos de contenido (si los quieres externos al HTML)
+│   ├── ikigai.json             // Citas o datos de Ikigai
+│   └── nietzsche.txt           // Textos largos
+├── index.html                  // (Página de Inicio)
+├── ikigai.html                 // Página dedicada a Ikigai
+├── estoicismo.html             // Página dedicada al Estoicismo
+└── nietzsche.html              // Página dedicada a Nietzsche
 ```
 ## Plan Responsivo
 
