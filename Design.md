@@ -30,60 +30,67 @@
 
 ## EStructura de Archivo y Arquitectura CSS
 
-/mi-web-filosofia
-
+```
+/miFilosofia
 ├── public/                 // Archivos estáticos (favicon, manifest, robots.txt)
-
 ├── src/
-
 │   ├── assets/             // Recursos de la web (Imágenes, SVGs)
-
 │   ├── data/               // Contenido en JSON/Markdown (Citas, Conceptos Clave)
-
 │   ├── theme/              // **Configuración de la Identidad Visual (D-01)**
-
 │   │   ├── colors.js         // Definición de la paleta (D-01)
-
 │   │   ├── fonts.js          // Definición de tipografía (D-01)
-
 │   │   └── theme.js          // Objeto principal que agrupa `colors` y `fonts`
-
 │   ├── components/         // Componentes UI reutilizables
-
 │   │   ├── GlobalStyles/     // Estilos de Reset/Base y globales
-
 │   │   │   └── GlobalStyles.js
-
 │   │   ├── Layout/           // Estructura de la página (Header, Footer)
-
 │   │   │   ├── Header.jsx
-
 │   │   │   └── Footer.jsx
-
 │   │   ├── Button/           // Componente básico y reutilizable
-
 │   │   │   └── Button.jsx
-
 │   │   └── Card/             // Componente para presentar ideas/citas
-
 │   │       └── Card.jsx
-
 │   ├── pages/              // Páginas principales (vistas)
-
 │   │   ├── Home.jsx          // Página de inicio
-
 │   │   ├── Ikigai.jsx        // Página dedicada a Ikigai
-
 │   │   ├── Estoicismo.jsx    // Página dedicada al Estoicismo
-
 │   │   └── Nietzsche.jsx     // Página dedicada a Nietzsche
-
 │   ├── App.jsx             // Componente raíz (manejo de rutas)
-
 │   └── index.js            // Punto de entrada del proyecto
-
 ├── .gitignore
-
 ├── package.json
-
 └── README.md
+```
+## Plan Responsivo
+
+#### 1. Principio de Diseño: Mobile First
+
+* **Metodología:** Los estilos base se definen para la **pantalla más pequeña (móvil)**.
+* **Mejora:** Se utiliza `min-width` en las Media Queries para aplicar estilos *adicionales* solo en pantallas más grandes.
+
+#### 2. Definición de Breakpoints (Puntos de Ruptura)
+
+Se utilizarán tres breakpoints clave para manejar la transición del diseño:
+
+| Nombre (Referencia) | Valor (min-width) | Uso Principal |
+| :--- | :--- | :--- |
+| **Móvil (Base)** | 0px | Diseño por defecto (una columna, máxima legibilidad). |
+| **Tablet/Medio (MD)** | **768px** | Ajustes de padding, aumento de tamaño de fuentes, potencial barra lateral simple. |
+| **Escritorio/Grande (LG)** | **1200px** | Layout de contenido principal de dos o tres columnas (si es necesario) y ancho máximo de página. |
+
+**Ejemplo de implementación de Media Query (en CSS-in-JS):**
+
+```javascript
+// Consumo dentro de un styled component:
+const ContentContainer = styled.div`
+  padding: ${({ theme }) => theme.spacing.spaceSm}; // Base Móvil
+
+  @media (min-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.spaceMd}; // Estilo para Tablet/Medio
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+`;
